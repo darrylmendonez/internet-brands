@@ -14,23 +14,17 @@
         <main>
           <div class="row">
             <div :class="{'col-md-7': !bonusModeActive, 'col-md-5 offset-md-2': bonusModeActive}">
-              <h2 class="mt-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-              <h3 class="mt-30">Lorem ipsum dolor sit amet consctur adipiuing elit onec pulneque ut rstibr</h3>
-              <p class="mt-30">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue mauris rhoncus augue varius congue. Phasellus lacinia eros vitae nunc ornare, sit amet auctor ante pharetra. Nunc lorem odio, iaculis sit amet dapibus varius, efficitur nec ligula. Etiam ac felis lacinia, euismod velit at, imperdiet massa. Donec ornare est quis finibus cursus. Donec ac leo purus.
-              </p>
+              <h2 class="mt-50" v-html="title"></h2>
+              <h3 class="mt-30" v-html="subtitle"></h3>
+              <p class="mt-30" v-html="description"></p>
               <div class="mt-30 mb-50">
-                <button type="button" class="btn mr-5" :class="{ 'btn-outline-primary': !darkModeActive, 'btn-near-black': darkModeActive, 'btn-block': currentWidth <= responsiveBreakpoints.extraSmall || ( currentWidth >= responsiveBreakpoints.medium && currentWidth < responsiveBreakpoints.large ) }"  @click="darkModeActive = !darkModeActive">
-                  DONEC ULLMCORPER QUA
-                </button>
-                <button type="button" class="btn" :class="{ 'btn-black': !darkModeActive, 'btn-secondary': darkModeActive && currentWidth >= responsiveBreakpoints.medium, 'btn-near-black': darkModeActive && currentWidth < responsiveBreakpoints.medium, 'btn-block mt-20': currentWidth <= responsiveBreakpoints.extraSmall || ( currentWidth >= responsiveBreakpoints.medium && currentWidth < responsiveBreakpoints.large ) }" @click="darkModeActive = !darkModeActive">
-                  DONEC ULLMCORPER QUA
-                </button>
+                <button type="button" class="btn mr-5" :class="{ 'btn-outline-primary': !darkModeActive, 'btn-near-black': darkModeActive, 'btn-block': currentWidth <= responsiveBreakpoints.extraSmall || ( currentWidth >= responsiveBreakpoints.medium && currentWidth < responsiveBreakpoints.large ) }"  @click="darkModeActive = !darkModeActive" v-html="buttonText"></button>
+                <button type="button" class="btn" :class="{ 'btn-black': !darkModeActive, 'btn-secondary': darkModeActive && currentWidth >= responsiveBreakpoints.medium, 'btn-near-black': darkModeActive && currentWidth < responsiveBreakpoints.medium, 'btn-block mt-20': currentWidth <= responsiveBreakpoints.extraSmall || ( currentWidth >= responsiveBreakpoints.medium && currentWidth < responsiveBreakpoints.large ) }" @click="darkModeActive = !darkModeActive" v-html="buttonText"></button>
               </div>
             </div>
             <div class="col-md-5 mb-50">
               <div class="img-container" :class="{ 'lg-max-height': currentWidth >= responsiveBreakpoints.medium, 'md-max-height': currentWidth >= responsiveBreakpoints.small && currentWidth < responsiveBreakpoints.medium, 'sm-max-height': currentWidth >= responsiveBreakpoints.extraSmall && currentWidth < responsiveBreakpoints.small, 'xs-max-height': currentWidth < responsiveBreakpoints.extraSmall }"  @click="activateBonusMode">
-                <img src="img/flowers.jpeg" alt="pink dahlias at sunset bokeh" />
+                <img :src="img.src" :alt="img.alt" />
               </div>
             </div>
           </div>
